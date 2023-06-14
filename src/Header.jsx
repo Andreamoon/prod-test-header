@@ -5,7 +5,7 @@ export default () => (
     style={{
       padding: "1em",
       margin: "1em",
-      background: "green",
+      background: "red",
       color: "white",
       fontWeight: "bold",
     }}
