@@ -43,21 +43,13 @@ module.exports = (_, arg) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "starter",
+      name: "header",
       filename: "remoteEntry.js",
       remotes: {},
-      exposes: {},
-      shared: {
-        ...deps,
-        react: {
-          singleton: true,
-          requiredVersion: deps.react,
-        },
-        "react-dom": {
-          singleton: true,
-          requiredVersion: deps["react-dom"],
-        },
+      exposes: {
+        "./Header": "./src/Header",
       },
+      shared: require("./package.json").dependencies,
     }),
     new HtmlWebPackPlugin({
       template: "./src/index.html",
